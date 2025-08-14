@@ -4,7 +4,7 @@ This repository contains technical documentation of zero-day vulnerabilities dis
 
 All findings were reported to vendors prior to public disclosure, following responsible disclosure guidelines. However, the issues were either rejected, ignored or remain unpatched more than 90 days after initial notification.
 
-## Disclaimer
+#### Disclaimer
 
 - All information provided in this repository is for educational and research purposes only.  
 - The author does **not** condone or promote illegal activities.  
