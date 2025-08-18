@@ -1,4 +1,3 @@
-Affected versions <1.60.1
+TODO, write manual exploit code in C + make screenshots and automated exploitation. 
 
-
-TODO, write manual exploit code in C
+including Prompt Spoofing.
