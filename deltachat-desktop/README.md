@@ -1,3 +1,5 @@
+# TCC Bypass via Misconfigured Node Fuses (macOS)
+
 ## Summary
 
 DeltaChat Desktop for macOS is vulnerable to a **TCC bypass**, allowing an attacker to access the camera and microphone without proper user consent.  
@@ -51,4 +53,4 @@ This fuse controls whether the app respects the `ELECTRON_RUN_AS_NODE` environme
 
 Reference: https://www.electronjs.org/docs/latest/tutorial/fuses#runasnode
 
-proof-of-concept is coming up.
+- proof-of-concept is coming up.
