@@ -11,6 +11,18 @@
 # Software Link: https://github.com/deltachat/deltachat-desktop/releases/download/v2.10.0/DeltaChat-2.10.0-universal.dmg
 # Version: v2.10.0
 # Tested on: macOS Ventura
+#
+# Description:
+# DeltaChat Desktop for macOS allows a local attacker to bypass TCC protections by abusing the ELECTRON_RUN_AS_NODE environment variable. 
+# This enables execution of a Swift-based camera payload without user consent, leading to unauthorized access to the webcam. 
+#
+# Steps of exploitation:
+# 1: Write Swift camera payload to /tmp/selfie_payload.swift
+# 2: Compile Swift payload to /Users/user/Desktop/selfie
+# 3: Create LaunchAgent plist at /Users/kunpeeks/Library/LaunchAgents/com.deltachat.tcc.camera.plist
+# 4: Load LaunchAgent and trigger DeltaChat
+# 5. Saving selfie at /tmp/selfie.jpg
+
 
 set -e
 
