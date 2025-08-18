@@ -72,7 +72,7 @@ kunpeeks@MacBook-Pro-van-Kun 2 % bash exploit.sh
 Error: AudioFileOpen failed ('dta?')
 ```
 
-The recorded 5s audio file is located in `recording.m4a`. 
+The recorded 5s audio file is located in `/tmp/recording.m4a`. 
 
 
 
