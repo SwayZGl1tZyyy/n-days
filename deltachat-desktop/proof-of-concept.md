@@ -1,9 +1,10 @@
 # Exploitation
 
-
-### Automated 
+Showing a few ways to exploit this vulnerability, also showing a "new" vulnerability/technique with TCC that _can_ be useful for tricking a user for more TCC rights, e.g. full disk access or any other TCC rights. 
 
 >**Note:** When running this proof-of-concept, the Terminal app does not need a prompt for camera access. This is because the camera permission is granted to DeltaChat, and the injected code inherits those permissions, effectively bypassing macOS TCC restrictions.
+
+### Automated 
 
 Run the following from Terminal using [electroniz3r](https://github.com/r3ggi/electroniz3r)
 
