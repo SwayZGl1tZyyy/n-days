@@ -1,6 +1,6 @@
-# 0-days found & reported
+# vulnerabilities found & reported, but not fixed (n-days)
 
-This repository contains technical documentation of zero-day vulnerabilities discovered and responsibly disclosed by me.
+This repository contains technical documentation of vulnerabilities discovered and responsibly disclosed by me.
 
 All findings were reported to vendors prior to public disclosure, following responsible disclosure guidelines. However, the issues were either rejected, ignored or remain unpatched more than 90 days after initial notification.
 
