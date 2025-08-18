@@ -55,7 +55,7 @@ kunpeeks@MacBook-Pro-van-Kun % bash exploit.sh
 [+] Selfie taken! Opening...
 ```
 
-Example output microphone: (does not auto open, i'm too lazy too fix it)
+Example output microphone: (does not auto open the recording file, I'm too lazy too fix it)
 ```sh
 kunpeeks@MacBook-Pro-van-Kun 2 % bash exploit.sh
 [*] Choose the TCC resource to access:
