@@ -29,7 +29,7 @@ A picture is taken using the system webcam, without Terminal having any camera
 
 ### Manual 
 
-Clone the repository and then execute the automated bash script, creating the necessary files and 
+Clone the repository and then execute the bash script, the bash script autoexploits the TCC Bypass, creating a selfie without triggering a new TCC prompt.
 ```sh
 bash deltachat_camera_bypass.sh
 # or
