@@ -1,7 +1,16 @@
 #!/bin/bash
 
-# Exploit: DeltaChat macOS TCC Bypass via RunAsNode fuse (camera access)
-# Author: Kun Peeks - @SwayZGl1tZyyy
+# Exploit Title: DeltaChat Desktop 2.10.0 - macOS TCC Bypass via RunAsNode fuse (camera access)
+# Type: Local Privilege Escalation 
+# Date: 2025-08-18
+#
+# Exploit Author: Kun Peeks - (@SwayZGl1tZyyy)
+# Github: https://github.com/SwayZGl1tZyyy
+#
+# Vendor Homepage: https://delta.chat
+# Software Link: https://github.com/deltachat/deltachat-desktop/releases/download/v2.10.0/DeltaChat-2.10.0-universal.dmg
+# Version: v2.10.0
+# Tested on: macOS Ventura
 
 set -e
 
