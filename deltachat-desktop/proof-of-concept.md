@@ -76,14 +76,6 @@ The recorded 5s audio file is located in `/tmp/recording.m4a`.
 
 
 
-### Prompt Spoofing
-
-This payload triggers a macOS TCC prompt for disk access. But instead of showing the request as coming from the Terminal (which executed the code), the system displays:
-
-TODO: ^
-TODO: Update filenames, of .sh scripts, minor chanegs n stuff
-
-
 
 
 
