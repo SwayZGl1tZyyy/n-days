@@ -2,7 +2,7 @@
 
 This repository contains technical documentation of vulnerabilities discovered and responsibly disclosed by me.
 
-All findings were reported to vendors prior to public disclosure, following responsible disclosure guidelines. However, the issues were either rejected, ignored or remain unpatched more than 90 days after initial notification.
+All findings were reported to vendors prior to public disclosure, following responsible disclosure guidelines. However, the issues were either rejected, ignored or remain unpatched after initial notification.
 
 #### Disclaimer
 
