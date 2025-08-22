@@ -1,3 +1,5 @@
+# Local privilege abuse via unauthenticated XPC access to root SMC helper on macOS
+
 ## Summary
 
 batteryKid for macOS registers a root-privileged XPC helper (`me.alaneuler.batteryKid.PrivilegeHelper`) that exposes unauthenticated methods to read and write SMC (System Management Controller) keys. Any local user can connect to this helper and perform privileged hardware operations, such as disabling charging or disconnecting the power adapter, without any authorization checks. This can lead to denial of service, degraded hardware performance, and potential battery wear.
