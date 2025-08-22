@@ -137,3 +137,8 @@ Consider a signed message protocol or authentication handshake before accepting 
 
 4. Use SMJobBless properly
 Only allow elevated operations after proper user consent and authorization.
+
+
+References:
+- https://github.com/alaneuler/batteryKid/issues/22
+
