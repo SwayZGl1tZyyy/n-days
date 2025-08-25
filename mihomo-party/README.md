@@ -1,5 +1,7 @@
 # Local privilege abuse via unprotected UNIX socket in Mihomo Party Helper on macOS
 
+# CVE-2025-9474
+
 ## Summary
 
 Mihomo Party for macOS before version 1.8.1 exposes a root-owned UNIX socket (`/tmp/mihomo-party-helper.sock`) with world-readable and writable permissions. This socket accepts unauthenticated HTTP requests for setting system-wide proxy configurations. A local attacker can connect to this socket and configure the system to route all traffic through an attacker-controlled server, leading to potential man-in-the-middle (MiTM) attacks and data exfiltration.
