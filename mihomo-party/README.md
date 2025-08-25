@@ -157,10 +157,6 @@ More explanations:
 
 
 References:
-1. https://github.com/mihomo-party-org/mihomo-party/security/advisories/GHSA-73x8-f7c7-w88h
-
-Impact rating
-- Severity: High (8.0)
-- CVSS Score: CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:L
-- Affected version: <1.8.1
-- Common weakness enumerator (CWE): Insufficient Verification of Data Authenticity (CWE-345)
+- https://github.com/mihomo-party-org/mihomo-party/security/advisories/GHSA-73x8-f7c7-w88h
+- https://vuldb.com/?id.321343
+- https://www.cve.org/CVERecord?id=CVE-2025-9474 
