@@ -1,4 +1,4 @@
-# Local privilege abuse via unprotected UNIX socket in Mihomo Party Helper on macOS
+# Local privilege abuse via unprotected UNIX socket in Mihomo Party Helper on macOS (CVE-2025-9474)
 
 ## Summary
 
