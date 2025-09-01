@@ -1,4 +1,4 @@
-# Local privilege abuse via unauthenticated XPC access to root SMC helper on macOS
+# Local privilege abuse via unauthenticated XPC access to root SMC helper on macOS - (CVE-2025-9815)
 
 ## Summary
 
@@ -141,4 +141,5 @@ Only allow elevated operations after proper user consent and authorization.
 
 References:
 - https://github.com/alaneuler/batteryKid/issues/22
+- https://www.cve.org/CVERecord?id=CVE-2025-9815
 
