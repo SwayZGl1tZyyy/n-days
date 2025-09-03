@@ -53,4 +53,5 @@ This fuse controls whether the app respects the `ELECTRON_RUN_AS_NODE` environme
 
 Reference: https://www.electronjs.org/docs/latest/tutorial/fuses#runasnode
 
-- proof-of-concept is coming up.
+
+- https://github.com/SwayZGl1tZyyy/n-days/blob/main/deltachat-desktop/exploit.sh
