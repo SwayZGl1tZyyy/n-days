@@ -74,18 +74,3 @@ The reverse shell allows execution of arbitrary shell commands with the same pri
 But with this vulnerability, the contents of `~/Documents` are exposed.
 
 <img width="3380" height="2072" alt="tccbypass positron" src="https://github.com/user-attachments/assets/df9b430c-eea8-4345-a8f8-19db04d397d8" />
-
-
-
-#### Credits
-
-Discovered by:
-Kun Peeks (@SwayZGl1tZyyy)
-
-Date discovered:
-4 august 2025
-Affected version:
-https://cdn.posit.co/positron/releases/mac/x64/Positron-2025.07.0-204-x64.dmg (macOS)
-
-
-
