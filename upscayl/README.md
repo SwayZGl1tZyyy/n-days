@@ -1,3 +1,5 @@
+# TCC Bypass via Prompt Spoofing
+
 ## Summary
 
 Upscayl’s Electron configuration allows local attackers to trigger misleading macOS permission prompts by running malicious code under the identity of the trusted app. This is caused by the `RunAsNode` fuse being enabled, allowing `Node.js` code execution with full inherited app entitlements.
