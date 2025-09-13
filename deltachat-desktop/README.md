@@ -55,3 +55,8 @@ Reference: https://www.electronjs.org/docs/latest/tutorial/fuses#runasnode
 
 
 - https://github.com/SwayZGl1tZyyy/n-days/blob/main/deltachat-desktop/exploit.sh
+- https://github.com/deltachat/deltachat-desktop/pull/5423 (fix)
+
+## Timeline
+
+todo + chats
