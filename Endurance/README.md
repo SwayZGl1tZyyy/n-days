@@ -157,6 +157,8 @@ This method spawns `/usr/sbin/chown` and `/usr/bin/kextutil` with attacker-contr
 
 ## Proof-of-Concept
 
+>With SIP enabled (default), the vulnerability allows local privilege escalation to root. If SIP is explicitly disabled (`csrutil disable`), the `loadModuleWithPath` method can be abused to load arbitrary kernel extensions, leading to kernel code execution.
+
 A minimal Swift PoC that connects to the helper and calls `getVersionWithReply:`:
 
 ```swift
