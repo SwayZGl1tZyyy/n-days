@@ -1,4 +1,4 @@
-# Endurance macOS Helper: Unauthenticated XPC access allows local privilege escalation to root (kernel compromise)
+# Endurance 3.3.0: Unauthenticated XPC access allows local privilege escalation to root
 
 ## Summary
 
@@ -235,6 +235,7 @@ While not a direct privilege escalation, this represents an information disclosu
 Toggles macOS’s system-wide low power state as root.
 Security impact is lower, but it demonstrates arbitrary, unauthenticated manipulation of global system settings.
 
+>The primary impact is local privilege escalation to root. Because the helper invokes `kextutil` with attacker-controlled input, in environments where SIP or Secure Boot restrictions are disabled or weakened, this could further escalate to arbitrary kernel code execution.
 
 ## Mitigation
 
