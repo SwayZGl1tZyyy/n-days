@@ -1,4 +1,4 @@
-# Local Privilege Escalation can lead to kernel compromise
+# Endurance macOS Helper: Unauthenticated XPC access allows local privilege escalation to root (kernel compromise)
 
 ## Summary
 
@@ -89,16 +89,21 @@ The exported protocol HelperToolProtocol exposes six methods. These can be invok
                              0x0                                  // implementation
 ```
 
-The most critical method is `loadModuleNamed:WithReply:`:
 
-<img width="2980" height="678" alt="kernelcompr" src="https://github.com/user-attachments/assets/b92bc19b-5155-4824-a609-ebce804d618d" />
+
+The exported protocol (`HelperToolProtocol`) exposes six methods, including:
+- `loadModuleNamed:WithReply:`
+- `unloadModuleNamed:WithReply:`
+- `getTaskPowerMetricsWithReply:`
+- `getVersionWithReply:`
+- `enableLowPowerMode:`
+- `disableLowPowerMode:`
+
+The most critical method is `loadModuleNamed:WithReply:`:
 
 
 
 <img width="2962" height="652" alt="path" src="https://github.com/user-attachments/assets/f97c979d-3a87-46ae-9b5b-f3748031e382" />
-
-
-The most critical method is `loadModuleNamed:WithReply:`:
 
 ```asm
 /* @class TurboHelper */
@@ -145,9 +150,9 @@ This directly calls into `SystemCommands loadModuleWithPath:andAuthRef:` with 
 }
 ```
 
+<img width="2980" height="678" alt="kernelcompr" src="https://github.com/user-attachments/assets/b92bc19b-5155-4824-a609-ebce804d618d" />
 
-
-
+This method spawns `/usr/sbin/chown` and `/usr/bin/kextutil` with attacker-controlled arguments under root privileges.
 
 
 ## Proof-of-Concept
@@ -210,10 +215,26 @@ Running this PoC as an unprivileged user successfully connects to the privileged
 
 <img width="930" height="294" alt="endurance1" src="https://github.com/user-attachments/assets/92cf5375-5d1d-475a-a520-6bb074410ac6" />
 
+A minimal Swift proof-of-concept successfully connects to the helper and calls `getVersionWithReply:` as an unprivileged user, confirming unauthenticated access.
 
 ## Impact
 
-todo
+Any local, non-privileged user can connect to the helper and execute actions with root privileges. Because all six exported methods are unauthenticated, they extend the attack surface in different ways:
+
+- `loadModuleNamed:WithReply:`
+Executes privileged system utilities (`chown`, `kextutil`) on attacker-controlled input.
+Enables changing file ownership outside the user’s home directory and attempting to load arbitrary kernel extensions.
+This is the most critical privilege escalation path.
+- `unloadModuleNamed:WithReply:`
+Runs the reverse operation, also with root privileges.
+Could be abused to interfere with legitimate kernel extensions or destabilize the system.
+- `getTaskPowerMetricsWithReply:`
+Exposes detailed system power and energy metrics without authorization.
+While not a direct privilege escalation, this represents an information disclosure and could aid further attacks.
+- `enableLowPowerMode:` / `disableLowPowerMode:`
+Toggles macOS’s system-wide low power state as root.
+Security impact is lower, but it demonstrates arbitrary, unauthenticated manipulation of global system settings.
+
 
 ## Mitigation
 
