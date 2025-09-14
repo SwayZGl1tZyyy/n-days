@@ -132,5 +132,6 @@ Because the helper exports sensitive methods such as arbitrary shell execution, 
 
 ### References
 
-- https://theevilbit.github.io/posts/secure_coding_xpc_part5/
-- https://saelo.github.io/presentations/warcon18_dont_trust_the_pid.pdf
+- https://github.com/Resistine/Resistine-Desktop/issues/6
+
+
