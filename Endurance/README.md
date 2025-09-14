@@ -2,7 +2,9 @@
 
 ## Summary
 
-A local privilege abuse vulnerability exists in the Endurance macOS application (`com.MagnetismStudios.endurance.helper`). The bundled privileged helper tool exposes an unauthenticated NSXPC interface that allows any local user to invoke sensitive methods without authorization. This can result in execution of privileged functionality as root.
+Endurance 3.3.0 for macOS installs a privileged helper tool (`com.MagnetismStudios.endurance.helper`) that exposes an unauthenticated NSXPC interface. Any local user can connect to this interface and invoke sensitive methods without authorization. This allows execution of privileged functionality as root. The most critical method (`loadModuleNamed:WithReply:`) executes `/usr/sbin/chown` and `/usr/bin/kextutil` with attacker-controlled input.
+
+With SIP enabled (default), the vulnerability results in local privilege escalation to root. If SIP is explicitly disabled (`csrutil disable`), an attacker can further abuse this method to load arbitrary kernel extensions, leading to kernel code execution.
 
 ## Technical Details
 
