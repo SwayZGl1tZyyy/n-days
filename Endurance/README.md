@@ -1,4 +1,6 @@
+# Local Privilege Escalation → kernel compromise.
 
+Exploiting the full chain leads to kernel compromise lmao. 
 
 ## Summary
 
