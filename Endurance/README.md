@@ -1,10 +1,8 @@
-# Local Privilege Escalation → kernel compromise.
-
-Exploiting the full chain leads to kernel compromise lmao. 
+# Local Privilege Escalation can lead to kernel compromise
 
 ## Summary
 
-A local privilege abuse vulnerability exists in the Endurance macOS application (com.MagnetismStudios.endurance.helper). The bundled privileged helper tool exposes an unauthenticated NSXPC interface that allows any local user to invoke sensitive methods without authorization. This can result in execution of privileged functionality as root.
+A local privilege abuse vulnerability exists in the Endurance macOS application (`com.MagnetismStudios.endurance.helper`). The bundled privileged helper tool exposes an unauthenticated NSXPC interface that allows any local user to invoke sensitive methods without authorization. This can result in execution of privileged functionality as root.
 
 ## Technical Details
 
@@ -90,6 +88,65 @@ The exported protocol HelperToolProtocol exposes six methods. These can be invok
                              aV240816,                            // signature
                              0x0                                  // implementation
 ```
+
+The most critical method is `loadModuleNamed:WithReply:`:
+
+<img width="2980" height="678" alt="kernelcompr" src="https://github.com/user-attachments/assets/b92bc19b-5155-4824-a609-ebce804d618d" />
+
+
+
+<img width="2962" height="652" alt="path" src="https://github.com/user-attachments/assets/f97c979d-3a87-46ae-9b5b-f3748031e382" />
+
+
+The most critical method is `loadModuleNamed:WithReply:`:
+
+```asm
+/* @class TurboHelper */
+-(int)loadModuleNamed:(int)arg2 WithReply:(int)arg3 {
+    rbx = [arg3 retain];
+    r14 = [arg2 retain];
+    AuthorizationCreate(0x0, 0x0, 0x0, &var_28);
+    rcx = var_28;
+    rdx = r14;
+    r15 = [SystemCommands loadModuleWithPath:rdx andAuthRef:rcx];
+    [r14 release];
+    rsi = @"SUCCESS";
+    if (r15 == 0x0) {
+            rsi = @"ERROR";
+    }
+    (*(rbx + 0x10))(rbx);
+    rax = [rbx release];
+    return rax;
+}
+```
+
+This directly calls into `SystemCommands loadModuleWithPath:andAuthRef:` with the user-supplied string:
+
+```asm
+/* @class SystemCommands */
++(int)loadModuleWithPath:(int)arg2 andAuthRef:(int)arg3 {
+    rax = [arg2 retain];
+    r15 = rax;
+    r12 = [[NSString stringWithFormat:@"%@", rax] retain];
+    rax = [NSArray arrayWithObjects:@"-R"];
+    rax = [rax retain];
+    var_30 = [arg0 runTaskAsAdmin:@"/usr/sbin/chown" withAuthRef:arg3 andArgs:rax];
+    [rax release];
+    [r12 release];
+    r12 = [[NSString stringWithFormat:@"%@", r15] retain];
+    [r15 release];
+    rax = [NSArray arrayWithObjects:@"-v"];
+    rax = [rax retain];
+    rbx = [arg0 runTaskAsAdmin:@"/usr/bin/kextutil" withAuthRef:arg3 andArgs:rax];
+    [rax release];
+    [r12 release];
+    rax = (rbx != 0x0 ? 0x1 : 0x0) & (var_30 != 0x0 ? 0x1 : 0x0) & 0xff;
+    return rax;
+}
+```
+
+
+
 
 
 
