@@ -1,7 +1,8 @@
 #### Cloudflare WARP privilege escalation 
 
-**URLs:** https://one.one.one.one (1.1.1.1) https://1111-releases.cloudflareclient.com/mac/latest
-**Affected package installer**: package installer: Cloudflare_WARP_2025.9.558.0.pkg
+**URLs:** https://one.one.one.one (1.1.1.1) `https://1111-releases.cloudflareclient.com/mac/latest`
+
+**Affected package installer**: package installer: `Cloudflare_WARP_2025.9.558.0.pkg`
 
 #### description of problem:
 
