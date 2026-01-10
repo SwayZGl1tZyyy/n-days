@@ -24,5 +24,5 @@ macOS installer, seeing a bundle ID mismatch, installs the genuine WARP app unde
 the `postinstall` script configures a LaunchDaemon whose `ProgramArguments[0]` points at `${INSTALL_DIR}/Cloudflare WARP.app/Contents/Resources/CloudflareWARP` and then loads it with launchctl as root,
 the attacker’s CloudflareWARP binary is now executed with full root privileges, giving the attacker a reliable LPE and persistence.
 
->please note: 1. on older macOS you could install packages & get root without an password, 2. having admin privileges (a user account inside the `admin` group) is not the same as an root user and counts as an local privilege escalation on macOS. 
+>please note: having admin privileges (a user account inside the `admin` group) is not the same as an root user and counts as an local privilege escalation on macOS. 
 
