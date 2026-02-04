@@ -81,7 +81,7 @@ echo "[!] after install, check: cat /tmp/chrome_pwned.txt"
 
 #### disclosure
 
-I'm dislosing this because Google doesn't see admin->root as a valid local privilege escalation... So they fixing this vulnerability as a bug with no security impact. (Lol)
+I'm dislosing this because Google/Chromium doesn't see admin->root as a valid local privilege escalation... So now they're fixing this vulnerability as a bug with no security impact. They're calling this now as "spoof" (Lol)
 
 A bit unfortunate that I reported this, as this could've been very useful for red teamers.
 
