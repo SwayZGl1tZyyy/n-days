@@ -74,7 +74,7 @@ cat > "$APP_PATH/Contents/Info.plist" << EOF
 EOF
 
 echo "[+] setup complete!"
-echo "[!] now install Google Chrome .pkg"
+echo "[!] now wait till an administrator installs Google Chrome .pkg"
 echo "[!] after install, check: cat /tmp/chrome_pwned.txt"
 ```
 
