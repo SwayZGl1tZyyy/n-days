@@ -1,3 +1,5 @@
+## macOS local privilege escalation when installing mullvad vpn
+
 **tested versions**
 Download the package installer for Mullvad VPN: https://mullvad.net/download/app/pkg/latest/ (`MullvadVPN-2025.9.pkg`)
 Or download the latest package here: https://cdn.mullvad.net/app/desktop/releases/2025.9/MullvadVPN-2025.9.pkg
